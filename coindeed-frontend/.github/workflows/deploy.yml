@@ -1,0 +1,39 @@
+name: S3 Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+        env:
+          REACT_APP_LENDING_POOL_ADDRESS: ${{ secrets.REACT_APP_LENDING_POOL_ADDRESS }}
+          REACT_APP_WHOLESALE_ADDRESS: ${{ secrets.REACT_APP_WHOLESALE_ADDRESS }}
+          REACT_APP_DEED_FACTORY_ADDRESS: ${{ secrets.REACT_APP_DEED_FACTORY_ADDRESS }}
+          REACT_APP_MULTICAL_ADDRESS: ${{ secrets.REACT_APP_MULTICAL_ADDRESS }}
+          REACT_APP_UNISWAPV2: ${{ secrets.REACT_APP_UNISWAPV2 }}
+          REACT_APP_BASE_GRAPH_API_URL: ${{ secrets.REACT_APP_BASE_GRAPH_API_URL }}
+          REACT_APP_UNISWAP_ROUTER1: ${{ secrets.REACT_APP_UNISWAP_ROUTER1 }}
+          REACT_APP_DTOKEN_ADDRESS: ${{ secrets.REACT_APP_DTOKEN_ADDRESS }}
+          REACT_APP_BASE_BACKEND_API_URL: ${{ secrets.REACT_APP_BASE_BACKEND_API_URL }}
+          REACT_APP_FEED_REGISTRY: ${{ secrets.REACT_APP_FEED_REGISTRY }}
+          REACT_APP_METAMASK_DEEPLINK: ${{ secrets.REACT_APP_METAMASK_DEEPLINK }}
+          REACT_APP_CHAIN_NETWORK: ${{ secrets.REACT_APP_CHAIN_NETWORK }}
+          REACT_APP_DAO_ADDRESS: ${{ secrets.REACT_APP_DAO_ADDRESS }}
+
+      - name: Deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 cp --recursive --region ap-northeast-1 build s3://coindeed-frontend

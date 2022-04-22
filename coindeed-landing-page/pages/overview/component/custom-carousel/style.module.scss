@@ -1,0 +1,34 @@
+@import '../../../../styles/scss/abstracts/variables';
+@import '../../../../styles/scss/abstracts/mixins';
+
+.iconWrapperNext,
+.iconWrapperPrev {
+  position: absolute;
+  top: -45px;
+}
+
+.iconWrapperNext {
+  right: 0;
+}
+
+.iconWrapperPrev {
+  right: 80px;
+}
+
+:global(.ant-carousel) {
+  .customCarousel {
+    position: relative;
+    padding-right: 10px;
+    left: -10px;
+    :global(.slick-track) {
+      display: flex;
+      :global(.slick-slide) {
+        display: flex;
+      }
+    }
+    :global(.slick-list) {
+      overflow: hidden;
+      height: 450px !important;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+$color: rgba(53, 53, 53);
+$font-size: 0.75rem;
+
+.InputAmountTokens {
+  padding: 12px;
+  line-height: 1rem;
+  border-radius: 0.375rem;
+  border-color: rgba(209, 213, 219);
+  > input,
+  > span {
+    line-height: 1rem;
+    font-size: $font-size;
+    height: 18px;
+  }
+  > input {
+    color: $color;
+  }
+  > input::placeholder,
+  > span {
+    color: rgba($color, 0.8);
+  }
+}
+
+.noSuffix {
+  font-size: $font-size;
+  color: $color;
+  &::placeholder {
+    color: rgba($color, 0.8);
+  }
+}
+
+.error,
+.error:hover,
+.error:focus {
+  border-color: rgba(239, 68, 68) !important;
+}
+
+.button {
+  margin-left: 8px;
+  line-height: 1rem;
+  font-size: 0.75rem;
+  padding: 10px 12px !important;
+}
+
+.buttonAbsolute {
+  position: relative;
+
+  > button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateX(calc(100% + 8px)) translateY(-50%);
+  }
+}

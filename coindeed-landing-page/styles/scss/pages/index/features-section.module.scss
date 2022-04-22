@@ -1,0 +1,107 @@
+@import "../../abstracts/variables";
+
+.content {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(1.2) rotate(225deg);
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 99999px;
+    z-index: -1;
+
+    background: $bg-primary;
+    filter: blur(40px) opacity(0.1);
+  }
+}
+
+.title {
+  font-size: $font-size--1;
+  line-height: 35px;
+  margin-bottom: 20px;
+
+  > span:nth-child(1) {
+    color: $primary-purple;
+  }
+  > span:nth-child(2) {
+    color: $primary-blue;
+  }
+}
+
+.subTitle {
+  line-height: 30px;
+  margin: 0 0 50px 0;
+}
+
+.gCard {
+  display: flex;
+  align-items: stretch;
+}
+
+.card {
+  background: white;
+  flex: 1;
+  margin-right: 20px;
+  box-shadow: $box-shadow;
+  padding: 40px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: calc(0.3s * var(--index));
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @for $index from 1 to 10 {
+    &:nth-child(#{$index}) {
+      --index: #{$index};
+    }
+  }
+
+  > h3,
+  > p {
+    margin-bottom: 20px;
+    line-height: 22px;
+  }
+
+  > p,
+  > a {
+    font-size: $font-size--3;
+    color: $text-color--2;
+  }
+
+  > h3 {
+    color: $text-color;
+    font-size: $font-size--2;
+  }
+
+  > p {
+    margin-top: auto;
+  }
+
+  > a {
+    font-style: italic;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

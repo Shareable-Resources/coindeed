@@ -1,0 +1,249 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": true, "internalType": "uint256", "name": "saleId", "type": "uint256" }],
+    "name": "WholesaleCanceled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "saleId", "type": "uint256" },
+      { "indexed": true, "internalType": "address", "name": "offeredBy", "type": "address" },
+      { "indexed": false, "internalType": "address", "name": "tokenOffered", "type": "address" },
+      { "indexed": false, "internalType": "address", "name": "tokenRequested", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "offeredAmount", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "requestedAmount", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "minSaleAmount", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "deadline", "type": "uint256" },
+      { "indexed": false, "internalType": "address", "name": "reservedTo", "type": "address" },
+      { "indexed": false, "internalType": "address", "name": "permitDeedManager", "type": "address" },
+      { "indexed": false, "internalType": "bool", "name": "isPrivate", "type": "bool" },
+      { "indexed": false, "internalType": "uint256", "name": "exitDeedLock", "type": "uint256" }
+    ],
+    "name": "WholesaleCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "saleId", "type": "uint256" },
+      { "indexed": false, "internalType": "bool", "name": "isPrivate", "type": "bool" },
+      { "indexed": false, "internalType": "uint256", "name": "deadline", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "minSaleAmount", "type": "uint256" }
+    ],
+    "name": "WholesaleEdited",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "saleId", "type": "uint256" },
+      { "indexed": true, "internalType": "uint256", "name": "tokenOfferedAmount", "type": "uint256" }
+    ],
+    "name": "WholesaleExecuted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "saleId", "type": "uint256" },
+      { "indexed": true, "internalType": "address", "name": "reservedBy", "type": "address" }
+    ],
+    "name": "WholesaleReserved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{ "indexed": true, "internalType": "uint256", "name": "saleId", "type": "uint256" }],
+    "name": "WholesaleUnreserved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "saleId", "type": "uint256" },
+      { "indexed": true, "internalType": "address", "name": "tokenRequested", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "tokenOffered", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "receivedAmount", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "unsoldAmount", "type": "uint256" }
+    ],
+    "name": "WholesaleWithdrawn",
+    "type": "event"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "saleId", "type": "uint256" }],
+    "name": "cancelReservation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "saleId", "type": "uint256" }],
+    "name": "cancelWholesale",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "coinDeedAddressesProvider",
+    "outputs": [{ "internalType": "contract ICoinDeedAddressesProvider", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "tokenOffered", "type": "address" },
+      { "internalType": "address", "name": "tokenRequested", "type": "address" },
+      { "internalType": "uint256", "name": "offeredAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "requestedAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "minSaleAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "deadline", "type": "uint256" },
+      { "internalType": "address", "name": "reservedTo", "type": "address" },
+      { "internalType": "address", "name": "permitDeedManager", "type": "address" },
+      { "internalType": "bool", "name": "isPrivate", "type": "bool" },
+      { "internalType": "uint256", "name": "exitDeedLock", "type": "uint256" }
+    ],
+    "name": "createWholesale",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "tokenRequested", "type": "address" },
+      { "internalType": "uint256", "name": "requestedAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "minSaleAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "deadline", "type": "uint256" },
+      { "internalType": "address", "name": "reservedTo", "type": "address" },
+      { "internalType": "address", "name": "permitDeedManager", "type": "address" },
+      { "internalType": "bool", "name": "isPrivate", "type": "bool" },
+      { "internalType": "uint256", "name": "exitDeedLock", "type": "uint256" }
+    ],
+    "name": "createWholesaleEth",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "saleId", "type": "uint256" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
+    "name": "executeWholesale",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "saleId", "type": "uint256" }],
+    "name": "getWholesale",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "offeredBy", "type": "address" },
+          { "internalType": "address", "name": "tokenOffered", "type": "address" },
+          { "internalType": "address", "name": "tokenRequested", "type": "address" },
+          { "internalType": "uint256", "name": "offeredAmount", "type": "uint256" },
+          { "internalType": "uint256", "name": "requestedAmount", "type": "uint256" },
+          { "internalType": "uint256", "name": "soldAmount", "type": "uint256" },
+          { "internalType": "uint256", "name": "receivedAmount", "type": "uint256" },
+          { "internalType": "uint256", "name": "minSaleAmount", "type": "uint256" },
+          { "internalType": "uint256", "name": "deadline", "type": "uint256" },
+          { "internalType": "address", "name": "reservedTo", "type": "address" },
+          { "internalType": "bool", "name": "isPrivate", "type": "bool" },
+          { "internalType": "uint256", "name": "exitDeedLock", "type": "uint256" },
+          { "internalType": "enum IWholesaleFactory.WholesaleState", "name": "state", "type": "uint8" }
+        ],
+        "internalType": "struct IWholesaleFactory.Wholesale",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "_coinDeedAddressesProvider", "type": "address" }],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "saleId", "type": "uint256" },
+      { "internalType": "address", "name": "manager", "type": "address" }
+    ],
+    "name": "permitManager",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "saleId", "type": "uint256" },
+      { "internalType": "address[]", "name": "managers", "type": "address[]" }
+    ],
+    "name": "permitManagers",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "address", "name": "", "type": "address" }
+    ],
+    "name": "permittedDeedManager",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "saleId", "type": "uint256" }],
+    "name": "reserveWholesale",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "saleIdMapping",
+    "outputs": [
+      { "internalType": "address", "name": "offeredBy", "type": "address" },
+      { "internalType": "address", "name": "tokenOffered", "type": "address" },
+      { "internalType": "address", "name": "tokenRequested", "type": "address" },
+      { "internalType": "uint256", "name": "offeredAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "requestedAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "soldAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "receivedAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "minSaleAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "deadline", "type": "uint256" },
+      { "internalType": "address", "name": "reservedTo", "type": "address" },
+      { "internalType": "bool", "name": "isPrivate", "type": "bool" },
+      { "internalType": "uint256", "name": "exitDeedLock", "type": "uint256" },
+      { "internalType": "enum IWholesaleFactory.WholesaleState", "name": "state", "type": "uint8" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "saleId", "type": "uint256" },
+      { "internalType": "bool", "name": "_private", "type": "bool" }
+    ],
+    "name": "setPrivate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "saleId", "type": "uint256" }],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

@@ -1,0 +1,30 @@
+name: '[TESTNET] S3 Deploy'
+on:
+  push:
+    branches:
+      - testing
+  pull_request:
+    branches:
+      - testing
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Build
+        run: CI= yarn build
+        env:
+          TESTNET_ENV: ${{ secrets.TESTNET_ENV }}
+
+      - name: Deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_TESTNET }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_TESTNET }}
+        run: |
+          aws s3 cp --recursive --region ap-northeast-1 build s3://coindeed-testnet-frontend

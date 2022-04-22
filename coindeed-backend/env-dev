@@ -1,0 +1,3 @@
+NODE_ENV=dev
+PORT=4000
+DATABASE_URL="postgresql://coindeed:coindeed@localhost:5432/coindeed?schema=public"

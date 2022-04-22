@@ -1,0 +1,22 @@
+{
+    "rinkeby": {
+        "ethOracle": "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e",
+        "swapRouter": "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a",
+        "dToken": "0x819242E08d84fC6C05389B84b85913B828439c90",
+        "coinDeedDao": "0xc4955Fa6746AC382bE1122362355A9E0D080E795",
+        "feedRegistry": "0xb184913a73D97e8513612E82eE0cb48E9997Fc7a",
+        "platformFee": "100",
+        "stakingMultiplier": "1000000000000000000",
+        "lendingPool": "0x6eB75d7B3FeFf8Ed6cB2E015812915E18911cb13",
+        "wholesaleFactory": "0x435a31a10850df8a0306B18b13bf5FBE7b91Fe8f",
+        "coinDeedAddressesProvider": "0x109B78c9FD9B9aEa106f0275Bb93A517865c5f19",
+        "coinDeedAddressesProviderUtils": "0xDAc035F65db28Cd8E4A79462DAE7233ddeDAc27E",
+        "coinDeedUtils": "0x6b3d5aB2EE9FB88ddaa7929e2fF8Ce413973227E",
+        "coinDeedDeployer": "0xFd825d0e45E9d6985188A5EDAE08f96e0B92FccF",
+        "coinDeedFactory": "0x28730e85b2cF08cfE2303F0Ff03Aa855f99C223f",
+        "coinDeedTreasury": "0x735ED9ea421C1749BD879E933392bAB3CED4e8A1",
+        "pool": "0x5aF6a4574De6bF2Fa78e5bc889dA16c0140AFf60",
+        "DToken": "0x819242E08d84fC6C05389B84b85913B828439c90",
+        "coinDeedVault": "0xcfab6264Eb5cc11f0F15De3F27B7cA35f29f05D6"
+    }
+}

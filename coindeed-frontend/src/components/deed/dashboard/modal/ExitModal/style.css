@@ -1,0 +1,141 @@
+.cancel-modal .ant-modal-body {
+  background: #001e34;
+  border-radius: 8px;
+}
+.hr-line {
+  width: 100%;
+  height: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.input-address {
+  width: 60%;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+}
+.copy-address {
+  width: 33%;
+  text-align: end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.copy-deed-address {
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration-line: underline;
+  color: #00bedf;
+}
+.input-address {
+  background: #001e34;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 100%;
+  height: 43px;
+}
+.box-address {
+  height: 83px;
+  background: #00213a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 20px;
+}
+.box-pay-off {
+  width: 100%;
+  height: 109px;
+  background: #00213a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 20px 60px;
+  margin-top: 20px;
+  display: flex;
+}
+.radio-box {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+.input-box {
+  width: 75%;
+  display: flex;
+  align-items: center;
+}
+.input-address-deposit {
+  width: 100%;
+  height: 43px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+.ant-input-affix-wrapper-disabled {
+  width: 100%;
+  height: 43px;
+  background: #667a89;
+  border-radius: 8px;
+}
+.ant-input-suffix {
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(68, 68, 68, 0.7);
+}
+.label-radio {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+}
+.radio-check {
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+}
+.box-text {
+  margin-top: 20px;
+  width: 100%;
+  height: 164px;
+  background: #00213a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 20px 60px;
+}
+.box-container {
+  display: flex;
+  justify-content: space-between;
+}
+.title,
+.content {
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.supper-title {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+}
+.button-group {
+  padding: 10px 110px;
+  display: flex;
+  justify-content: center;
+}
+.button {
+  width: 120px;
+  height: 37px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+}
+.yes {
+  background: linear-gradient(99.36deg, #00bedf -0.18%, #0068b3 99.82%);
+  color: #ffffff;
+  border: none;
+}
+.yes:hover {
+  background: linear-gradient(99.36deg, #0068b3 -0.18%, #00bedf 99.82%);
+  color: #ffffff;
+}

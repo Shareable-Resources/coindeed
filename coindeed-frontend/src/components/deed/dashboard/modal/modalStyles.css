@@ -1,0 +1,28 @@
+.ant-modal-body{
+    background: #001E34;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.ant-input input::placeholder {
+    color: rgb(68,68,68);
+  }
+.ant-picker-input input::placeholder {
+color: rgb(68,68,68);
+}
+.ant-picker-input::placeholder {
+    color: rgb(68,68,68);
+}
+
+.ant-input::placeholder {
+    color: rgb(68,68,68);
+}
+
+
+.swap-radio-input::placeholder {
+    color: rgb(68,68,68, .7);
+}
+
+
+
+

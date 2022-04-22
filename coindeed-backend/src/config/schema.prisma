@@ -1,0 +1,123 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Deed {
+  id                                          Int      @id @default(autoincrement())
+  deedAddress                                 String?  @db.Char(42)
+  deedManager                                 String?  @db.Char(42)
+  status                                      String?
+  type                                        String?
+  swapType                                    String?  @default("DEX")
+  actionType                                  String?
+  wholesaleAddress                            String?  @db.Char(42)
+  coinA                                       String?  @db.Char(42)
+  coinAName                                   String?  @db.VarChar(4)
+  coinB                                       String?  @db.Char(42)
+  coinBName                                   String?  @db.VarChar(4)
+  loanLeverage                                Float
+  size                                        Int
+  sizeConsumed                                Int?
+  managementFee                               Float    @default(0.00)
+  recruitingEndDate                           DateTime
+  escrowEndDate                               DateTime
+  deedEndDate                                 DateTime
+  systemTriggeredAssetPriceDrop               Float?   @default(0.00)
+  systemTriggeredLeveragedAdjustment          Int?
+  systemTriggeredDeedCompletionAssetPriceDrop Float?
+  allowBrokers                                Boolean
+  minimumBrokerStakingAmount                  Float?
+  published                                   DateTime @default(now())
+  updated                                     DateTime @updatedAt
+  progress                                    Float? @default(0.00)
+  profit                                      Float? @default(0.00)
+  allOrMy                                     String?
+}
+
+model Wholesale{
+  id                                          Int @id @default(autoincrement()) // assigned by our backend 
+  wholesaleAddress                            String @db.Char(42)  
+  
+  deedAddress                                 String? @db.Char(42)              // Deed Address
+  status                                      String? @db.Char(42)              // same as a deed status canceled/completed ect... 
+  token                                       String @db.Char(42)               // Token supported by each wholesale (e.g., ETH, USDT). An icon of the related coin should be displayed to the left.
+  size                                        Int                               // Size of the wholesale
+  pricePerToken                               Float                             // set price per token
+  wholesaleEndDate                            DateTime                          // when wholesale Ends
+  type                                        String @db.Char(42)               // public or private wholesale 
+  minimumDeedRequirement                      Int                               // A deed must meet this minimum size
+  transactionFee                              Float                             // The wholesaler specifies how the transaction fee will be paid. It is converted to DToken via current pricing on the DEX. The conversion is refreshed via a subscription to the DEX.
+  escrowEndDate                               DateTime                          // when escrow closes
+  wholesaleManager                            String @db.Char(42)               // Wholesale manager address
+
+  managementFee                               Float? @default(0.00)
+  recruitingEndDate                           DateTime?
+  manuallyTriggeredAssetPriceDrop             Float? @default(0.00)
+  manuallyTriggeredLeverageAdjustment         Int?
+  systemTriggeredAssetPriceDrop               Float? @default(0.00)
+  systemTriggeredLeveragedAdjustment          Int?
+  systemTriggeredDeedCompletionAssetPriceDrop Float?
+  allowBrokers                                Boolean?
+  minimumBrokerStakingAmount                  Float?
+  published                                   DateTime? @default(now())
+  updated                                     DateTime? @updatedAt
+  profit                                      Float?
+}
+// per Patrick, only the following attributes apply to buyer
+model Buyer {
+  id Int @id @default(autoincrement())
+  deedsNetWorth Float
+  totalLendingPoolValue Float
+  totalWholesaleClaimBalance Float
+  totalDeedsClaimBalance Float
+  totalStakingAmount Float
+  APY Float
+  totalDeeds Int
+  totalDeedsInRecruiting Int
+  totalDeedsInEscrow Int
+  totalDeedsOpen Int
+}
+
+model DeedManager {
+  id Int @id @default(autoincrement())
+  blockchainAccountAddress String @db.Char(42)
+  deedsNetWorth Float
+  totalLendingPoolValue Float
+  totalWholesaleClaimBalance Float
+  totalDeedsClaimBalance Float
+  totalStakingAmount Float
+  APY Float
+  totalDeeds Int
+  totalDeedsInRecruiting Int
+  totalDeedsInEscrow Int
+  totalDeedsOpen Int
+}
+
+model PurchaseToken {
+  id Int @id @default(autoincrement())
+  name String
+  decimals Int
+  isActive Boolean @default(false)
+  address String @db.Char(42)
+}
+
+model DepositToken {
+  id Int @id @default(autoincrement())
+  name String
+  decimals Int
+  isActive Boolean @default(false)
+  address String @db.Char(42)
+}
+
+model LendingPool {
+  id Int @id @default(autoincrement())
+  name String
+  decimals Int
+  tokenAddress String @db.Char(42)
+  oracelTokenAddress String @db.Char(42)
+}

@@ -1,0 +1,13 @@
+.progress-status-info {
+  position: relative;
+  gap: 25px;
+  column-gap: 0;
+  grid-template-columns: 1fr;
+}
+
+@media only screen and (min-width: 768px) {
+  .progress-status-info {
+    gap: 25px;
+    grid-template-columns: 2fr 2fr 3fr;
+  }
+}

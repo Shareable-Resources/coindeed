@@ -1,0 +1,53 @@
+@import "../../styles/scss/abstracts/variables";
+
+.footerNavigation,
+.footerContent {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.footer {
+  background: linear-gradient(
+    247.49deg,
+    #1f2021 -2.13%,
+    #454545 46.9%,
+    #252525 103.65%
+  );
+  color: white;
+  padding: 80px 0;
+}
+
+.footerContent > div {
+  flex: 1;
+}
+
+.footerNavigation {
+  > div {
+    flex: 1;
+    margin-right: 16px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    > div {
+      font-weight: normal;
+    }
+  }
+
+  div {
+    font-weight: bold;
+    font-size: $font-size--4;
+    > a {
+      display: block;
+      margin-bottom: 14px;
+    }
+  }
+}
+
+.leftFooter {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+}

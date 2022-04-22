@@ -1,0 +1,91 @@
+.cancel-modal .ant-modal-body {
+  background: #001e34;
+  border-radius: 8px;
+}
+.hr-line {
+  width: 100%;
+  height: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.copy-address {
+  width: 33%;
+  text-align: end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.copy-deed-address {
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration-line: underline;
+  color: #00bedf;
+  cursor: pointer;
+}
+.input-address,
+.input-address:disabled {
+  background: #001e34;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 100%;
+  height: 43px;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 15px;
+}
+.box-address {
+  height: 83px;
+  background: #00213a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 20px;
+}
+.box-text {
+  margin-top: 20px;
+  width: 100%;
+  background: #00213a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 20px 60px;
+}
+.box-text-1 {
+  height: 136px;
+}
+.box-text-2 {
+  height: 64px;
+}
+.button-group-cancel {
+  padding: 10px 110px;
+  display: flex;
+}
+.between {
+  justify-content: space-between;
+}
+.center {
+  justify-content: center;
+}
+.button {
+  width: 120px;
+  height: 37px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+}
+.no,
+.no:hover {
+  background: rgba(0, 99, 141, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+}
+.yes {
+  background: linear-gradient(99.36deg, #00bedf -0.18%, #0068b3 99.82%);
+  color: #ffffff;
+  border: none;
+}
+.yes:hover {
+  background: linear-gradient(99.36deg, #0068b3 -0.18%, #00bedf 99.82%);
+  color: #ffffff;
+}

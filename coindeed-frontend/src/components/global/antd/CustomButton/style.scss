@@ -1,0 +1,33 @@
+@import '../../../../styles/variables';
+
+.coindeed__antd--button {
+  &.OkButton,
+  &.cancelButton {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    height: auto;
+    font-weight: 600;
+  }
+  &.OkButton {
+    background: $bg-primary;
+    &:hover {
+      background: $bg-primary;
+      filter: brightness(1.2);
+    }
+  }
+  &.cancelButton {
+    background: rgba($panel--color, 0.3);
+    &:hover {
+      background: rgba($panel--color, 0.3);
+      filter: brightness(1.2);
+    }
+  }
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active {
+    color: white;
+    filter: brightness(0.8);
+  }
+}

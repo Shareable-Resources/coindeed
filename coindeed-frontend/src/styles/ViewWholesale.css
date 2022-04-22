@@ -1,0 +1,12 @@
+.progress-status-info-wholesale {
+  display: grid;
+  gap: 25px;
+  column-gap: 0;
+  grid-template-columns: 1fr;
+}
+@media only screen and (min-width: 768px) {
+  .progress-status-info-wholesale {
+    column-gap: 25px;
+    grid-template-columns: 2fr 3fr;
+  }
+}

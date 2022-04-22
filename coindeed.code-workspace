@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "coindeed-backend"
+		},
+		{
+			"path": "coindeed-contracts"
+		},
+		{
+			"path": "coindeed-frontend"
+		},
+		{
+			"path": "coindeed-landing-page"
+		},
+		{
+			"path": "coindeed-bot"
+		}
+	]
+}

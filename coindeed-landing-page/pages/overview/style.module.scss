@@ -1,0 +1,87 @@
+@import '../../styles/scss/abstracts/variables';
+@import '../../styles/scss/abstracts/mixins';
+
+.overviewHeader {
+  height: 147px;
+  padding: 31px 120px;
+  align-items: flex-end;
+}
+
+.title {
+  color: $primary-purple;
+  font-weight: 600;
+}
+
+.participate {
+  padding: 0 120px;
+}
+
+.participateHeaderContainer {
+  max-width: 788px;
+}
+
+.participateHeader {
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 86px;
+}
+
+.participateSubHeader {
+  font-size: 24px;
+}
+
+.socialLinks {
+  display: flex;
+  height: fit-content;
+  justify-content: space-around;
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 50px;
+  width: 220px;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
+.howItWork {
+  background-color: #f9f9f9;
+  height: 848px;
+  padding: 103px 120px 0 120px;
+}
+
+.howItWorkHeader {
+  font-weight: 600;
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 38px;
+}
+
+.stepDetail {
+  display: flex;
+  flex-direction: row;
+}
+
+.stepIcon {
+  display: flex;
+  flex-direction: column;
+  overflow: none;
+  align-items: center;
+}
+
+.cube {
+  width: 20px;
+  height: 24px;
+}
+
+.seperateLine {
+  width: 2px;
+  height: 65px;
+  margin-top: 10px;
+  margin-bottom: 11px;
+}
+
+.representImage {
+  max-width: 591px;
+  max-height: 545px;
+  object-fit: cover;
+}

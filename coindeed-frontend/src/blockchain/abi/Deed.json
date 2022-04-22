@@ -1,0 +1,453 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "manager_", "type": "address" },
+      { "internalType": "address", "name": "coinDeedAddressesProvider_", "type": "address" },
+      { "internalType": "uint256", "name": "stakingAmount_", "type": "uint256" },
+      {
+        "components": [
+          { "internalType": "address", "name": "tokenA", "type": "address" },
+          { "internalType": "address", "name": "tokenB", "type": "address" }
+        ],
+        "internalType": "struct ICoinDeed.Pair",
+        "name": "pair_",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "deedSize", "type": "uint256" },
+          { "internalType": "uint8", "name": "leverage", "type": "uint8" },
+          { "internalType": "uint256", "name": "managementFee", "type": "uint256" },
+          { "internalType": "uint256", "name": "minimumBuy", "type": "uint256" }
+        ],
+        "internalType": "struct ICoinDeed.DeedParameters",
+        "name": "deedParameters_",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "recruitingEndTimestamp", "type": "uint256" },
+          { "internalType": "uint256", "name": "buyTimestamp", "type": "uint256" },
+          { "internalType": "uint256", "name": "sellTimestamp", "type": "uint256" }
+        ],
+        "internalType": "struct ICoinDeed.ExecutionTime",
+        "name": "executionTime_",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "trigger", "type": "uint256" },
+          { "internalType": "uint256", "name": "secondTrigger", "type": "uint256" },
+          { "internalType": "uint8", "name": "leverage", "type": "uint8" }
+        ],
+        "internalType": "struct ICoinDeed.RiskMitigation",
+        "name": "riskMitigation_",
+        "type": "tuple"
+      },
+      {
+        "components": [{ "internalType": "bool", "name": "allowed", "type": "bool" }],
+        "internalType": "struct ICoinDeed.BrokerConfig",
+        "name": "brokerConfig_",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "previousAdminRole", "type": "bytes32" },
+      { "indexed": true, "internalType": "bytes32", "name": "newAdminRole", "type": "bytes32" }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "account", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "sender", "type": "address" }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "account", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "sender", "type": "address" }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "BASE_DENOMINATOR",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DEFAULT_ADMIN_ROLE",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "brokerConfig",
+    "outputs": [{ "internalType": "bool", "name": "allowed", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "minAmountOut", "type": "uint256" }],
+    "name": "buy",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }],
+    "name": "buyIn",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "buyIns",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  { "inputs": [], "name": "cancel", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  { "inputs": [], "name": "claimBalance", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  {
+    "inputs": [],
+    "name": "deedParameters",
+    "outputs": [
+      { "internalType": "uint256", "name": "deedSize", "type": "uint256" },
+      { "internalType": "uint8", "name": "leverage", "type": "uint8" },
+      { "internalType": "uint256", "name": "managementFee", "type": "uint256" },
+      { "internalType": "uint256", "name": "minimumBuy", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "deedSize", "type": "uint256" },
+          { "internalType": "uint8", "name": "leverage", "type": "uint8" },
+          { "internalType": "uint256", "name": "managementFee", "type": "uint256" },
+          { "internalType": "uint256", "name": "minimumBuy", "type": "uint256" }
+        ],
+        "internalType": "struct ICoinDeed.DeedParameters",
+        "name": "deedParameters_",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "recruitingEndTimestamp", "type": "uint256" },
+          { "internalType": "uint256", "name": "buyTimestamp", "type": "uint256" },
+          { "internalType": "uint256", "name": "sellTimestamp", "type": "uint256" }
+        ],
+        "internalType": "struct ICoinDeed.ExecutionTime",
+        "name": "executionTime_",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "trigger", "type": "uint256" },
+          { "internalType": "uint256", "name": "secondTrigger", "type": "uint256" },
+          { "internalType": "uint8", "name": "leverage", "type": "uint8" }
+        ],
+        "internalType": "struct ICoinDeed.RiskMitigation",
+        "name": "riskMitigation_",
+        "type": "tuple"
+      },
+      {
+        "components": [{ "internalType": "bool", "name": "allowed", "type": "bool" }],
+        "internalType": "struct ICoinDeed.BrokerConfig",
+        "name": "brokerConfig_",
+        "type": "tuple"
+      },
+      { "internalType": "uint256", "name": "saleId_", "type": "uint256" }
+    ],
+    "name": "edit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "deedSize_", "type": "uint256" },
+      { "internalType": "uint8", "name": "leverage_", "type": "uint8" },
+      { "internalType": "uint256", "name": "managementFee_", "type": "uint256" },
+      { "internalType": "uint256", "name": "minimumBuy_", "type": "uint256" }
+    ],
+    "name": "editBasicInfo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [{ "internalType": "bool", "name": "allowed", "type": "bool" }],
+        "internalType": "struct ICoinDeed.BrokerConfig",
+        "name": "brokerConfig_",
+        "type": "tuple"
+      }
+    ],
+    "name": "editBrokerConfig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "recruitingEndTimestamp", "type": "uint256" },
+          { "internalType": "uint256", "name": "buyTimestamp", "type": "uint256" },
+          { "internalType": "uint256", "name": "sellTimestamp", "type": "uint256" }
+        ],
+        "internalType": "struct ICoinDeed.ExecutionTime",
+        "name": "executionTime_",
+        "type": "tuple"
+      }
+    ],
+    "name": "editExecutionTime",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "trigger", "type": "uint256" },
+          { "internalType": "uint256", "name": "secondTrigger", "type": "uint256" },
+          { "internalType": "uint8", "name": "leverage", "type": "uint8" }
+        ],
+        "internalType": "struct ICoinDeed.RiskMitigation",
+        "name": "riskMitigation_",
+        "type": "tuple"
+      }
+    ],
+    "name": "editRiskMitigation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "saleId_", "type": "uint256" }],
+    "name": "editSwapType",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  { "inputs": [], "name": "executeRiskMitigation", "outputs": [], "stateMutability": "payable", "type": "function" },
+  {
+    "inputs": [],
+    "name": "executionTime",
+    "outputs": [
+      { "internalType": "uint256", "name": "recruitingEndTimestamp", "type": "uint256" },
+      { "internalType": "uint256", "name": "buyTimestamp", "type": "uint256" },
+      { "internalType": "uint256", "name": "sellTimestamp", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bool", "name": "payoff_", "type": "bool" }],
+    "name": "exitDeed",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getCoinDeedAddressesProvider",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes32", "name": "role", "type": "bytes32" }],
+    "name": "getRoleAdmin",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "hasRole",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "manager",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pair",
+    "outputs": [
+      { "internalType": "address", "name": "tokenA", "type": "address" },
+      { "internalType": "address", "name": "tokenB", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pendingToken",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  { "inputs": [], "name": "ready", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "saleId", "type": "uint256" }],
+    "name": "reserveWholesale",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "riskMitigation",
+    "outputs": [
+      { "internalType": "uint256", "name": "trigger", "type": "uint256" },
+      { "internalType": "uint256", "name": "secondTrigger", "type": "uint256" },
+      { "internalType": "uint8", "name": "leverage", "type": "uint8" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "riskMitigationTriggered",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "minAmountOut", "type": "uint256" }],
+    "name": "sell",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }],
+    "name": "stake",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "stakes",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "state",
+    "outputs": [{ "internalType": "enum ICoinDeed.DeedState", "name": "", "type": "uint8" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bytes4", "name": "interfaceId", "type": "bytes4" }],
+    "name": "supportsInterface",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalFee",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalPurchasedToken",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalStake",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "wholesaleId",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  { "inputs": [], "name": "withdrawStake", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  { "stateMutability": "payable", "type": "receive" }
+]

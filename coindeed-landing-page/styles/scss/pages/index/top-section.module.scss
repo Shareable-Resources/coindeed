@@ -1,0 +1,111 @@
+@import "../../abstracts/variables";
+
+.content {
+  display: flex;
+  align-items: center;
+  line-height: 35px;
+
+  > div {
+    flex: 1;
+  }
+}
+
+.content__left {
+  > span,
+  > h2,
+  > p {
+    color: $text-color--2;
+  }
+
+  > span {
+    color: $primary-blue;
+    font-weight: 800;
+  }
+
+  > h2 {
+    font-size: $font-size--1;
+  }
+
+  > p {
+    opacity: 0.7;
+  }
+}
+
+.content__right {
+  display: flex;
+  flex-direction: column;
+}
+
+.content__right__gCard {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+  margin-bottom: 35px;
+}
+
+.content__right__card {
+  display: flex;
+  align-items: center;
+  box-shadow: $box-shadow;
+  border: 1px solid black;
+  font-weight: 600;
+  padding: 20px 40px 20px 20px;
+  background-color: white;
+
+  animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: calc(0.3s * var(--index));
+
+  @for $index from 1 to 10 {
+    &:nth-child(#{$index}) {
+      --index: #{$index};
+    }
+  }
+}
+
+.content__right__card__token {
+  display: inline-flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #e0e0e0;
+    border-radius: 100%;
+    margin-right: 10px;
+  }
+}
+
+.content__right__card__currency {
+  color: $text-color;
+  opacity: 0.7;
+}
+
+.content__right__card__value--up {
+  color: #3dbb3d;
+}
+.content__right__card__value--down {
+  color: #bb3d3d;
+}
+
+.content__right__link {
+  color: $text-color;
+  opacity: 0.7;
+  margin-left: auto;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

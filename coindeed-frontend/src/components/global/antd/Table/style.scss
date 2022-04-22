@@ -1,0 +1,207 @@
+@import '../../../../styles//variables';
+
+.coindeed__antd--table {
+  $text-color: white;
+  $text-size: 12px;
+
+  display: block;
+
+  .ant-table {
+    color: $text-color;
+    background-color: rgba($panel--color, 0.3);
+    font-size: $text-size;
+    padding: 5px 25px 0px 25px;
+    border-radius: 8px;
+    line-height: 15px;
+  }
+
+  .ant-table-thead > tr > th {
+    background-color: transparent;
+    font-weight: 600;
+    padding-bottom: 5px;
+    &::before {
+      content: none !important;
+    }
+  }
+
+  .ant-table-thead > tr > th {
+    border-bottom: none;
+  }
+
+  .ant-table-cell {
+    color: $text-color;
+    border-bottom-color: rgba($text-color, 0.4);
+    padding: 16px 0;
+  }
+
+  td.ant-table-column-sort,
+  .ant-table-tbody > tr.ant-table-row:hover > td,
+  .ant-table-tbody > tr.ant-table-placeholder:hover > td {
+    background-color: rgba($text-color, 0.1) !important;
+  }
+
+  .ant-table-row {
+    &:last-child {
+      .ant-table-cell {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .ant-empty-image svg {
+    opacity: 0.4;
+  }
+
+  .ant-empty-normal {
+    color: rgba($text-color, 0.4);
+  }
+
+  .ant-table-column-sorters {
+    justify-content: flex-start;
+    > span:nth-child(1) {
+      flex: none;
+      margin-right: 6px;
+    }
+  }
+
+  .ant-table-empty .ant-table-tbody > tr.ant-table-placeholder {
+    > .ant-table-cell {
+      padding: 120px 0;
+      font-weight: 600;
+    }
+  }
+}
+
+.ant-table-empty {
+  .ant-table-cell {
+    border: none;
+  }
+}
+
+.coindeed__antd--table-brief {
+  .ant-table-cell {
+    padding: 15px 0;
+  }
+
+  .ant-table-column-has-sorters:last-of-type {
+    .ant-table-column-sorters {
+      justify-content: flex-end;
+    }
+  }
+}
+
+.coindeed__antd--table-brief-ws {
+  .ant-table-cell {
+    padding: 15px 0;
+  }
+
+  .ant-table-column-has-sorters:last-of-type {
+    .ant-table-column-sorters {
+      padding-left: 50px;
+    }
+  }
+
+  .ant-table-tbody {
+    .ant-table-row {
+      .ant-table-cell:last-child {
+        padding-left: 50px;
+      }
+    }
+  }
+}
+
+.coindeed__antd--table-brief-managers {
+  .ant-table-empty .ant-table-tbody > tr.ant-table-placeholder {
+    > .ant-table-cell {
+      padding: 99px 0 98px 0;
+      font-weight: 600;
+    }
+  }
+}
+
+.deed-dashboard-table {
+  .ant-table-column-has-sorters:last-of-type {
+    .ant-table-column-sorters {
+      justify-content: flex-end;
+    }
+  }
+}
+.coindeed_account__antd--table {
+  $text-color: white;
+  $text-size: 12px;
+
+  display: block;
+
+  .ant-table {
+    background-color: rgba($panel--color, 0.3);
+    font-size: $text-size;
+    padding: 8px 32px;
+    border-radius: 8px;
+    line-height: 15px;
+    min-height: 234px;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ant-table-thead > tr > th {
+    background-color: transparent;
+    font-weight: 600;
+    padding-bottom: 5px;
+    &::before {
+      content: none !important;
+    }
+  }
+
+  .ant-table-thead > tr > th {
+    font-size: 0.75rem;
+    border-bottom: none;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .ant-table-cell {
+    color: $text-color;
+    border-bottom-color: rgba($text-color, 0.4);
+    font-size: 0.875rem;
+    padding: 16px 0;
+  }
+
+  td.ant-table-column-sort,
+  .ant-table-tbody > tr.ant-table-row:hover > td,
+  .ant-table-tbody > tr.ant-table-placeholder:hover > td {
+    background-color: rgba($text-color, 0.1) !important;
+  }
+
+  .ant-table-row {
+    &:last-child {
+      .ant-table-cell {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .ant-empty-image svg {
+    opacity: 0.4;
+  }
+
+  .ant-empty-normal {
+    color: rgba($text-color, 0.4);
+  }
+
+  .ant-table-column-sorters {
+    justify-content: flex-start;
+    > span:nth-child(1) {
+      flex: none;
+      margin-right: 6px;
+    }
+  }
+
+  .ant-table-empty .ant-table-tbody > tr.ant-table-placeholder {
+    > .ant-table-cell {
+      padding: 120px 0;
+      font-weight: 600;
+    }
+  }
+}

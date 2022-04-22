@@ -1,0 +1,51 @@
+@import "../../abstracts/variables";
+
+.content {
+  display: flex;
+  align-items: center;
+  padding: 150px 0;
+
+  > div {
+    flex: 1;
+  }
+}
+
+.content__left {
+  color: $text-color--2;
+
+  > h1,
+  > p,
+  > a {
+    max-width: 380px;
+  }
+
+  > p {
+    line-height: 35px;
+  }
+
+  > a {
+    font-size: $font-size--3;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.content__right {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 40px;
+
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #404040;
+    min-height: 128px;
+
+    font-weight: 600;
+    font-size: 48px;
+  }
+}
